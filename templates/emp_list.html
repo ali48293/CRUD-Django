@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+<table>
+    <tr>
+        <td>Name</td>
+        <td>ID</td>
+        <td>Email</td>
+        <td>
+            <button> <a href="{% url 'form' %}">Add</a></button>
+        </td>
+    </tr>
+    <tbody>
+        {% for employee in emp_list %}
+        <tr>
+            <td>{{employee.emp_name}}</td>
+            <td>{{employee.emp_id}}</td>
+            <td>{{employee.emp_Email}}</td>
+            <td>
+                <button><a href="{% url 'update_employee' employee.id %}">Update</a></button>
+                <button><a href="{% url 'del' employee.id %}">Delete</a></button>
+
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
